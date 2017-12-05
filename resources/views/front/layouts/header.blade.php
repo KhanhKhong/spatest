@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img height="200" src="../source/images/logo.png" alt=""></a>
+                    <a href="{{ route('home') }}"><img height="200" src="../../source/images/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="pull-left  hidden-xs">    
+                <div class="pull-left  hidden-xs">
                     <h3 class="slogan-text padtop-10">Đánh thức vẻ đẹp Làn da</h3>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="menu-title" href="#">TIN TỨC VÀ KHUYẾN MÃI</a>
+                        <a class="menu-title" href="{{route('news.main')}}">TIN TỨC VÀ KHUYẾN MÃI</a>
                         <ul class="dropdown-menu" style="display: none;">
                             @foreach($cate_news as $item)
                                 @if($item->children->count() > 0)

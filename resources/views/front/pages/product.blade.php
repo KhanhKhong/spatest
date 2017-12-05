@@ -66,6 +66,7 @@
         @endforeach
 
     </div>
+    <div class="text-center">{{ $product->links() }}</div>
 </div>
 <!--end product-->
 @endsection

@@ -18,7 +18,7 @@
                         <a href="#"><img src="../../source/images/{{ $item->image }}"></a> 
                     </div>
                     <div class="news-right2">
-                        <h2><a href="{{ route('news.detail',['id'=> $item->id]) }}">{{ $item->title }}</a> </h2>
+                        <h2><a href="#">{{ $item->title }}</a> </h2>
                         <p><span><i class="fa fa-calendar"></i>{{ $item->created_at }}.</span></p>
                     </div>
                 </div>

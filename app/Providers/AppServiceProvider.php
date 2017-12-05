@@ -7,6 +7,7 @@ use App\ProductCategory;
 use App\AboutCategory;
 use App\ServiceCategory;
 use App\NewsCategory;
+use App\Products;
 use View;
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,7 +23,8 @@ class AppServiceProvider extends ServiceProvider
             $cate_news = NewsCategory::with('children')->where('parent','=',0)->get();
             $cate_service = ServiceCategory::with('children')->where('parent','=',0)->get();
             $cate_about = AboutCategory::with('children')->where('parent','=',0)->get();
-            $view->with(['cate_product'=>$cate_product, 'cate_news'=>$cate_news, 'cate_service'=>$cate_service, 'cate_about'=>$cate_about,]);
+            $relatePro = Products::orderBy('id','desc')->paginate(4);
+            $view->with(['cate_product'=>$cate_product, 'cate_news'=>$cate_news, 'cate_service'=>$cate_service, 'cate_about'=>$cate_about,'relatePro' => $relatePro]);
         });
     }
 

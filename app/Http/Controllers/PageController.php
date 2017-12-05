@@ -18,9 +18,30 @@ class PageController extends Controller
     public function index(){
         $banner = SliderImagesBanner::get();
         $news = News::orderBy('id','desc')->paginate(4);
-        $products = Products::orderBy('id','desc')->paginate(8);
-        $proOne = Products::orderBy('id','desc')->first();
-    	return view('front.pages.index',compact(['banner','news','products','proOne']));
+
+        $products_1 = Products::where('product_category_id','=',1)->orderBy('id','desc')->paginate(8);
+        $proOne_1 = Products::where('product_category_id','=',1)->orderBy('id','desc')->first();
+
+        $products_2 = Products::where('product_category_id','=',2)->orderBy('id','desc')->paginate(8);
+        $proOne_2 = Products::where('product_category_id','=',2)->orderBy('id','desc')->first();
+
+        $products_3 = Products::where('product_category_id','=',3)->orderBy('id','desc')->paginate(8);
+        $proOne_3 = Products::where('product_category_id','=',3)->orderBy('id','desc')->first();
+
+        $products_4 = Products::where('product_category_id','=',4)->orderBy('id','desc')->paginate(8);
+        $proOne_4 = Products::where('product_category_id','=',4)->orderBy('id','desc')->first();
+
+        $products_5 = Products::where('product_category_id','=',5)->orderBy('id','desc')->paginate(8);
+        $proOne_5 = Products::where('product_category_id','=',5)->orderBy('id','desc')->first();
+
+        $products_6 = Products::where('product_category_id','=',6)->orderBy('id','desc')->paginate(8);
+        $proOne_6 = Products::where('product_category_id','=',6)->orderBy('id','desc')->first();
+
+        $products_7 = Products::where('product_category_id','=',7)->orderBy('id','desc')->paginate(8);
+        $proOne_7 = Products::where('product_category_id','=',7)->orderBy('id','desc')->first();
+
+    	return view('front.pages.index',
+            compact(['banner','news','products_1','proOne_1','products_2','proOne_2','products_3','proOne_3','products_4','proOne_4','products_5','proOne_5','products_6','proOne_6','products_7','proOne_7']));
     }
 
     //about
@@ -53,17 +74,27 @@ class PageController extends Controller
         $product = Products::where('product_category_id','=',$id)->paginate(8);
     	return view('front.pages.product',compact('product'));
     }
+
     public function productDetail($id){
-    	return view('front.pages.product_detail');
+        $product = Products::where('id','=',$id)->first();
+        $thumbnail = ProductImage::where('product_id','=',$id)->get();
+    	return view('front.pages.product_detail',compact(['product','thumbnail']));
     }
     //end product
 
     //news
-	public function news(){
-    	return view('front.pages.news');
+    public function newsmain(){
+        $news = News::orderBy('id','desc')->paginate(4);
+        return view('front.pages.news',compact(['news']));
     }
-    public function newsDetail(){
-    	return view('front.pages.news_detail');
+
+	public function news($id){
+        $news = News::where('news_category_id','=',$id)->orderBy('id','desc')->paginate(4);
+    	return view('front.pages.news',compact(['news']));
+    }
+    public function newsDetail($id){
+        $news = News::where('id','=',$id)->first();
+    	return view('front.pages.news_detail',compact(['news']));
     }
     //end news
 }

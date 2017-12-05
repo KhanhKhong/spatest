@@ -25,8 +25,9 @@ Route::get('/service/detail/{id}','PageController@serviceDetail')->name('service
 Route::get('/product/{id}','PageController@product')->name('product');
 Route::get('/product/detail/{id}','PageController@productDetail')->name('product.detail');
 //news
-Route::get('/news','PageController@news')->name('news');
-Route::get('/news/detail','PageController@newsDetail')->name('news.detail');
+Route::get('/newsmain','PageController@newsmain')->name('news.main');
+Route::get('/news/{id}','PageController@news')->name('news');
+Route::get('/news/detail/{id}','PageController@newsDetail')->name('news.detail');
 
 
 

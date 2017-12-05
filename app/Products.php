@@ -9,7 +9,7 @@ class Products extends Model
     protected $table = "products";
     protected $primary = 'id';
     protected $fillable = [
-    	'id','image','title','description','price_sale','price','hot','status','product_category_id','created_at','updated_at'
+    	'id','image','title','short_description','description','price_sale','price','hot','status','product_category_id','created_at','updated_at'
     ];
 
     public function product_category(){

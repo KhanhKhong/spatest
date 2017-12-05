@@ -8,8 +8,6 @@
 <div class="container">
     <h2 class="box-heading text-uppercase text-center">DỊCH VỤ</h2>
     <div class="row">
-
-
         @foreach($service as $item)
         <div class="col-md-4 col-sm-4 col-xs-12 wow fadeInLeft animated animated animated fade-service-left" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" >
             <div class="item-service">
@@ -36,8 +34,8 @@
             </div>
         </div>
         @endforeach
-        
     </div>
+    <div class="text-center">{{ $service->links() }}</div>
 </div>
 <!--end service-->
 @endsection
