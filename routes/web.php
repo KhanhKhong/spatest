@@ -35,3 +35,5 @@ Route::get('/news/detail/{id}','PageController@newsDetail')->name('news.detail')
 
 
 
+
+
