@@ -33,10 +33,15 @@ Route::get('/news/detail/{id}','PageController@newsDetail')->name('news.detail')
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-Route::prefix('admin')->group(function () {
-	
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
+	Route::get('/','AdminController@index')->name('admin');
+	Route::post('/edit-header','AdminController@header')->name('header');
+	//slider
+	Route::get('/slider','AdminController@slider')->name('slider');
+	Route::get('/edit-slider','AdminController@sliderEdit')->name('slider.edit');
+	Route::post('/update-slider','AdminController@sliderUpdate')->name('slider.update');
+	Route::get('/delete-slider','AdminController@sliderDelete')->name('slider.delete');
+	//End slider
 });
+
+

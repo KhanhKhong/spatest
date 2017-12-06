@@ -11,53 +11,28 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="../../source/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../source/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="../../source/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../../source/css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="../../source/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../source/css/slider.css">
+    <link rel="stylesheet" type="text/css" href="../../source/css/slide-muti.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="../../source/css/type-3.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+    <div class="type-3">
+        <div id="wrap">
+            @include('front.layouts.header')
+            <br><br><br><br>
+            <div id="app">
+                @yield('content')
             </div>
-        </nav>
-
-        @yield('content')
+        </div>
+        @include('front.layouts.footer')
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

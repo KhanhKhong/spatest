@@ -5,33 +5,35 @@
 <header class="masthead header-top">
     <div class="container">
         <div class="row">
+            @if(!empty($header))
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img height="200" src="../../source/images/logo.png" alt=""></a>
+                    <a href="{{ route('home') }}"><img height="200" src="../../source/images/{{ $header->logo }}" alt=""></a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="pull-left  hidden-xs">
-                    <h3 class="slogan-text padtop-10">Đánh thức vẻ đẹp Làn da</h3>
+                    <h3 class="slogan-text padtop-10">{{ $header->slogan }}</h3>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                 <div class="pull-right martop-25 line3">
-                    <span class="padright-10 text-gray contact-us">Call us: +15557200314</span>
+                    <span class="padright-10 text-gray contact-us">Call us: +84 {{ $header->phone }}</span>
                     <div class="icon-circle pull-right">
-                        <a href="#" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="{{ $header->facebook }}" target="_blank" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
                     </div>
                     <div class="icon-circle pull-right">
-                        <a href="#" class="itwittter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="{{ $header->twitter }}" target="_blank" class="itwittter" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </div>
                     <div class="icon-circle pull-right">
-                        <a href="#" class="igoogle" title="Google+"><i class="fa fa-google-plus"></i></a>
+                        <a href="{{ $header->google }}" target="_blank" class="igoogle" title="Google+"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div class="icon-circle pull-right">
-                        <a href="#" class="iLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="{{ $header->pinterest }}" target="_blank" class="igoogle" title="Pinterest"><i class="fa fa-pinterest"></i></a>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
