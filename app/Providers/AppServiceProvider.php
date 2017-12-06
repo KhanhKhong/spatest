@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 use App\ProductCategory;
 use App\AboutCategory;
 use App\ServiceCategory;
@@ -18,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(255);
         View::composer(['front.pages.index','front.pages.about','front.pages.about_employee','front.pages.about_recruitment','front.pages.about_spa','front.pages.service','front.pages.service_detail','front.pages.product','front.pages.product_detail','front.pages.news','front.pages.news_detail','front.master','front.layouts.nav'],function($view){
             $cate_product = ProductCategory::with('children')->where('parent','=',0)->get();
             $cate_news = NewsCategory::with('children')->where('parent','=',0)->get();

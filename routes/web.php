@@ -13,8 +13,8 @@
 
 
 
-Route::get('/','PageController@index')->name('home');
 Route::get('/home','PageController@index')->name('home');
+Route::get('/','PageController@index')->name('home');
 //about
 Route::get('/about','PageController@about')->name('about');
 Route::get('/about/detail/{id}','PageController@aboutDetail')->name('about.detail');
@@ -31,9 +31,12 @@ Route::get('/news/detail/{id}','PageController@newsDetail')->name('news.detail')
 
 
 
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-
-
-
+Route::prefix('admin')->group(function () {
+	
+});

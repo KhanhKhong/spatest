@@ -8,9 +8,9 @@
 	<h2 class="box-heading text-uppercase text-center">GIỚI THIỆU</h2>
 	<div class="row">
 		<div class="col-sm-12"> 
-
+			@if(!empty($about))
 			{!! $about->description !!}
-			
+			@endif
 		</div>
 	</div>
 </div>
