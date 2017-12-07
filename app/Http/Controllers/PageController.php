@@ -14,6 +14,7 @@ use App\ProductsCategory;
 use App\NewsCategory;
 use App\AboutCategory;
 use App\ProductImage;
+use App\Schedule;
 use Validator;
 class PageController extends Controller
 {
@@ -125,7 +126,44 @@ class PageController extends Controller
         }
         return redirect('/');
     }
-
-
     //end footer new letter
+
+    //mail
+    public function mail(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:120',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'time' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect('/')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        if(!empty($request->all())){
+            $sche = Schedule::first();
+            if(empty($sche)){
+                $sche->name = $request->name;
+                $sche->phone = $request->phone;
+                $sche->email = $request->email;
+                $sche->time = $request->time;
+                $sche->description = $request->description;
+                $sche->save();
+            }else{
+                $sche = Schedule::create([
+                    'name' => $request->get('name'),
+                    'phone' => $request->get('phone'),
+                    'email' => $request->get('email'),
+                    'time' => $request->get('time'),
+                    'description' => $request->get('description'),
+                ]);
+            }
+            
+        }
+        return redirect('/');
+    }
+
+    //end mail
 }

@@ -33,6 +33,10 @@ Route::get('/news/detail/{id}','PageController@newsDetail')->name('news.detail')
 Route::post('/create-newletter','PageController@newletterCreate')->name('newletter.create');
 // end footer new letter
 
+
+//email
+Route::post('/mail', 'PageController@mail')->name('email.create');
+//end email
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
