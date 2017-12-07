@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SliderImagesBanner;
 use App\News;
+use App\NewLetter;
 use App\About;
 use App\Products;
 use App\Services;
@@ -13,6 +14,7 @@ use App\ProductsCategory;
 use App\NewsCategory;
 use App\AboutCategory;
 use App\ProductImage;
+use Validator;
 class PageController extends Controller
 {
     public function index(){
@@ -97,4 +99,33 @@ class PageController extends Controller
     	return view('front.pages.news_detail',compact(['news']));
     }
     //end news
+
+
+    //footer new letter
+    public function newletterCreate(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+        ]);
+        if ($validator->fails()) {
+            return redirect('/')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        if(!empty($request->email)){
+            $letter = NewLetter::first();
+            if(empty($letter)){
+                $letter->email = $request->email;
+                $letter->save();
+            }else{
+                $letter = NewLetter::create([
+                    'email' => $request->get('email'),
+                ]);
+            }
+            
+        }
+        return redirect('/');
+    }
+
+
+    //end footer new letter
 }

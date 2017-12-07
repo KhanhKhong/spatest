@@ -17,6 +17,60 @@
 					<span class="nav-link-text">Slider</span>
 				</a>
 			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'categories' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('categories') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">Product Category</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'product_admin' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('product_admin') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">Product</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'about.categories' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('about.categories') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">About Category</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'about_admin' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('about_admin') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">About</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'news.categories' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('news.categories') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">News Category</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'news_admin' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('news_admin') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">News</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'service.categories' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('service.categories') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">Service Category</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'service_admin' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('service_admin') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">Service</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'footer' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('footer') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">footer</span>
+				</a>
+			</li>
 		</ul>
 		<ul class="navbar-nav sidenav-toggler">
 			<li class="nav-item">

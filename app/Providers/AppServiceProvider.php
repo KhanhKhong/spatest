@@ -10,6 +10,7 @@ use App\ServiceCategory;
 use App\NewsCategory;
 use App\Products;
 use App\Header;
+use App\Footer;
 use View;
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,7 +29,8 @@ class AppServiceProvider extends ServiceProvider
             $cate_about = AboutCategory::with('children')->where('parent','=',0)->get();
             $relatePro = Products::orderBy('id','desc')->paginate(4);
             $header = Header::first();
-            $view->with(['cate_product'=>$cate_product, 'cate_news'=>$cate_news, 'cate_service'=>$cate_service, 'cate_about'=>$cate_about,'relatePro' => $relatePro,'header' => $header]);
+            $footer = Footer::first();
+            $view->with(['cate_product'=>$cate_product, 'cate_news'=>$cate_news, 'cate_service'=>$cate_service, 'cate_about'=>$cate_about,'relatePro' => $relatePro,'header' => $header,'footer' => $footer]);
         });
     }
 

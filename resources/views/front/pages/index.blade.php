@@ -13,7 +13,7 @@
                     <div class="item{{ $key == 0 ? ' active' : '' }}" style="background-image: url(../source/images/{{ $item->image }})">
                         <div class="carousel-content">
                             <h1 class="animation animated-item-1">{{ $item->title }}</h1>
-                            <h2 class="animation animated-item-2">{{ $item->description }}</h2>
+                            <h2 class="animation animated-item-2">{{ $item->sub_title }}</h2>
                             <p><a class="btn-slide animation animated-item-3" href="#">PURCHASE NOW</a></p>
                         </div>
                     </div>
