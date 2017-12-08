@@ -197,7 +197,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           
@@ -825,7 +825,7 @@
                 <h1 class="service-title text-center schedule-text">Đặt lịch hẹn</h1>
                 <div class="row-custom">
                     <div class="col-sm-8 col-md-8 contact-form">
-                        <form action="{{ route('email.create') }}" id="contact" method="post" class="form" enctype="multipart/form-data">
+                        <form action="{{ route('email.create') }}" id="contact" method="get" class="form" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">

@@ -33,9 +33,35 @@ Route::get('/news/detail/{id}','PageController@newsDetail')->name('news.detail')
 Route::post('/create-newletter','PageController@newletterCreate')->name('newletter.create');
 // end footer new letter
 
+//cart
+Route::get('/cart', [
+    'as' => 'page.cart',
+    'uses' => 'CartController@cart'
+]);
+
+Route::get('/create-cart/{productId}', [
+    'as' => 'cart.create',
+    'uses' => 'CartController@cartCreate'
+]);
+
+Route::get('/edit-cart/{rowId}', [
+    'as' => 'cart.edit',
+    'uses' => 'CartController@cartEdit'
+]);
+
+Route::get('/renove-cart/{rowId}', [
+    'as' => 'cart.remove',
+    'uses' => 'CartController@cartRemove'
+]);
+
+Route::get('/bills', [
+    'as' => 'bills',
+    'uses' => 'CartController@bills'
+]);
+//end cart
 
 //email
-Route::post('/mail', 'PageController@mail')->name('email.create');
+Route::get('/mail', 'PageController@mail')->name('email.create');
 //end email
 Auth::routes();
 

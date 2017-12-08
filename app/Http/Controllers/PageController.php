@@ -15,7 +15,9 @@ use App\NewsCategory;
 use App\AboutCategory;
 use App\ProductImage;
 use App\Schedule;
+use App\Mail\SpaMail;
 use Validator;
+use Mail;
 class PageController extends Controller
 {
     public function index(){
@@ -128,42 +130,48 @@ class PageController extends Controller
     }
     //end footer new letter
 
+    
+    
     //mail
     public function mail(Request $request){
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:120',
-            'email' => 'required|email',
-            'phone' => 'required|numeric',
-            'time' => 'required',
-            'description' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return redirect('/')
-                    ->withErrors($validator)
-                    ->withInput();
-        }
-        if(!empty($request->all())){
-            $sche = Schedule::first();
-            if(empty($sche)){
-                $sche->name = $request->name;
-                $sche->phone = $request->phone;
-                $sche->email = $request->email;
-                $sche->time = $request->time;
-                $sche->description = $request->description;
-                $sche->save();
-            }else{
-                $sche = Schedule::create([
-                    'name' => $request->get('name'),
-                    'phone' => $request->get('phone'),
-                    'email' => $request->get('email'),
-                    'time' => $request->get('time'),
-                    'description' => $request->get('description'),
-                ]);
-            }
-            
-        }
-        return redirect('/');
-    }
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|max:120',
+        //     'email' => 'required|email',
+        //     'phone' => 'required|numeric',
+        //     'time' => 'required',
+        //     'description' => 'required',
+        // ]);
+        // if ($validator->fails()) {
+        //     return redirect('/')
+        //             ->withErrors($validator)
+        //             ->withInput();
+        // }
+        // if(!empty($request->all())){
+        //     $sche = new Schedule;
+        //     if(empty($sche)){
+        //         $sche->name = $request->name;
+        //         $sche->phone = $request->phone;
+        //         $sche->email = $request->email;
+        //         $sche->time = $request->time;
+        //         $sche->description = $request->description;
+        //         $sche->save();
+        //     }else{
+        //         $sche = Schedule::create([
+        //             'name' => $request->get('name'),
+        //             'phone' => $request->get('phone'),
+        //             'email' => $request->get('email'),
+        //             'time' => $request->get('time'),
+        //             'description' => $request->get('description'),
+        //         ]);
+        //     }
+        // }
+            // Mail::to('khongk39@gmail.com')->send(new SpaMail);
 
+        Mail::send('emails.reminder', ['key' => 'value'], function($message)
+        {
+            $message->to('duckhanhkhong@gmail.com', 'name user')->subject('title mail');
+        });
+        return view('emails.reminder');
+    }
     //end mail
 }
