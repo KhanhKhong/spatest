@@ -155,7 +155,7 @@
                                                 <a href="#" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
                                                 <img width="300" height="300" src="../source/images/{{ $item->image }}" class="attachment-medium size-medium wp-post-image" alt="">                                        
                                             </div>                                      
-                                            <div class="item-content">
+                                            <div class="item-content">  
                                                 <h4><a href="{{ route('product.detail',['id' => $item->id]) }}">{{ $item->title }}</a></h4>                                                                               
                                                 <!-- rating  -->
                                                 <div class="reviews-content">
@@ -297,7 +297,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           
@@ -397,7 +397,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           
@@ -497,7 +497,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           
@@ -597,7 +597,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           
@@ -697,7 +697,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           
@@ -797,7 +797,7 @@
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 
                                                     </div>
-                                                    <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                                    <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                                     <div class="woocommerce product compare-button">
                                                         <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                                     </div>                                           

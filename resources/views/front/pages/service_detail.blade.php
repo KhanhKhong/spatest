@@ -19,22 +19,30 @@
             <h1 class="service-title text-center schedule-text">Đặt lịch hẹn</h1>
                 <div class="row-custom">
                     <div class="col-sm-8 col-md-8 contact-form">
-                        <form id="contact" method="post" class="form" role="form">
+                        @if ($errors->any())
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li style="color: red">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        <form action="{{ route('email.create') }}" id="contact" method="get" class="form" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
                                     <input class="form-control form-width input-newslatter" id="name" name="name" placeholder="YOUR NAME" type="text" required autofocus />
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
-                                    <input class="form-control form-width input-newslatter" id="email" name="email" placeholder="YOUR PHONE" type="email" required />
+                                    <input class="form-control form-width input-newslatter" id="phone" name="phone" placeholder="YOUR PHONE" type="number" required />
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
-                                    <input class="form-control form-width input-newslatter" id="name" name="name" placeholder="YOUR EMAIL" type="text" required autofocus />
+                                    <input class="form-control form-width input-newslatter" id="email" name="email" placeholder="YOUR EMAIL" type="text" required autofocus />
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
-                                    <input class="form-control form-width input-newslatter" id="email" name="email" placeholder="PREFFERED DATE AND TIME" type="email" required />
+                                    <input class="form-control form-width input-newslatter" id="time" name="time" placeholder="PREFERRED DATE AND TIME" type="text" required />
                                 </div>
                             </div>
-                            <textarea class="form-control form-width input-newslatter" id="message" name="message" placeholder="Write your comment here" rows="5"></textarea>
+                            <textarea class="form-control form-width input-newslatter" id="description" name="description" placeholder="Write your comment here" rows="5"></textarea>
                             <button type="submit" class="btn-contact">Gửi</button>
                         </form>
                     </div>

@@ -81,7 +81,7 @@
                             <input type="number" id="qty" step="1" min="1" max="" name="quantity" value="1" title="SL" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
                             <input type="button" value="+" class="plus">
                         </div>
-                        <button type="submit" class="single_add_to_cart_button button alt marright-10">Thêm vào giỏ</button>
+                        <a rel="nofollow" href="{{ route('cart.create',['productId' => $product->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                         <div class="woocommerce product compare-button marright-10">
                             <a href="javascript:void(0)" class="compare button" data-product_id="7383" rel="nofollow">Đặt hàng</a>
                         </div>

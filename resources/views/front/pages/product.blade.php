@@ -53,7 +53,7 @@
                                     <div style="clear:both"></div>
                                     <div class="yith-wcwl-wishlistaddresponse"></div>
                                 </div>
-                                <a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
+                                <a rel="nofollow" href="{{ route('cart.create',['productId' => $item->id]) }}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Thêm vào giỏ</a>
                                 <div class="woocommerce product compare-button">
                                     <a href="#" class="compare button" rel="nofollow">Đặt hàng</a>
                                 </div>                                           
