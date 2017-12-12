@@ -8,12 +8,12 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">News</li>
+        <li class="breadcrumb-item active">Slider banner</li>
     </ol>
     <button type="button" class="btn btn-success"><a class="text_custom" href="{{ route('slider.edit') }}">Create</a></button>
     <ol></ol>
     <div class="card mb-3">
-        <div class="card-header"><i class="fa fa-table"></i> Danh sách News</div>
+        <div class="card-header"><i class="fa fa-table"></i> Danh sách</div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover">

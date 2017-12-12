@@ -3,13 +3,13 @@
 		<div class="container">
 			<div class="row">    
 				<div class="col-xs-12 col-sm-4 col-md-4 column logo-fnone">          
-					<h2 class="footer-title">liên Hệ</h2>
+					<h2 class="footer-title" style="font-size: 23px;">liên Hệ</h2>
 					@if(!empty($footer))
 						{!! $footer->about_us !!}
 					@endif
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4 column">          
-					<h2 class="footer-title">DỊCH VỤ</h2>
+				<div class="col-xs-12 col-sm-4 col-md-4 column">
+					<h2 class="footer-title" style="font-size: 23px;">DỊCH VỤ</h2>
 					<div class="col-xs-12 col-md-6 column">
 						<ul>
 							<li><a href="#"><i class="fa fa-angle-right icon-right"></i>Trang chủ</a></li>
@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 column">          
-					<h2 class="footer-title">NEWLETTER</h2>
+					<h2 class="footer-title" style="font-size: 23px;">NEWLETTER</h2>
 					<ul>
 						<li>
 							<p>Nhận thông tin khuyến mãi từ chúng tôi:</p>

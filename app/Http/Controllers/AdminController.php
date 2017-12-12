@@ -16,6 +16,10 @@ use App\ProductCategory;
 use App\Services;
 use App\ServiceCategory;
 use App\SliderImagesBanner;
+use App\Schedule;
+use App\Bills;
+use App\Customer;
+use App\BillDetail;
 use Intervention\Image\Facades\Image;
 use File;
 use Validator;
@@ -196,8 +200,7 @@ class AdminController extends Controller
                 'title' => 'required|max:100',
                 'short_description' => 'required',
                 'description' => 'required',
-                'price_sale' => 'required|numeric|between:0,99.99',
-                'price' => 'required|numeric|between:0,99.99',
+                'price' => 'required|numeric',
                 'hot' => 'required',
                 'status' => 'required',
                 'product_category_id' => 'required',
@@ -257,15 +260,15 @@ class AdminController extends Controller
             ]);
         }
         if(!empty($product_id)){
-            $delPicture = Products::where('id','=',$product_id)->first();
-            if (!empty($delPicture)) {
-                File::delete('source/images/' . $delPicture->image);
-            }
+            // $delPicture = Products::where('id','=',$product_id)->first();
+            // if (!empty($delPicture)) {
+            //     File::delete('source/images/' . $delPicture->image);
+            // }
             $images = ProductImage::where('product_id','=',$product_id)->get();
             if(!empty($images)){
-                foreach ($images as $image) {
-                    File::delete('source/images/' . $image->image);
-                }
+                // foreach ($images as $image) {
+                //     File::delete('source/images/' . $image->image);
+                // }
                 ProductImage::where('product_id','=',$product_id)->delete();
             }
             if ( $reg->hasFile( 'imageMulti' ) ) {
@@ -706,4 +709,84 @@ class AdminController extends Controller
         return redirect('/admin/footer');
     }
     //End footer
+
+    //schedule
+    
+    public function schedule(){
+        $schedule = Schedule::paginate(10);
+        return view('admin.pages.schedule.index',compact(['schedule']));
+    }
+
+    public function scheduleEdit(Request $reg){
+        if(isset($reg->id)){
+            $editItems = Schedule::where('id','=',$reg->id)->first();
+        }
+        return view('admin.pages.schedule.edit',compact(['editItems']));
+    }
+
+    public function scheduleUpdate(Request $reg){
+        $schedule_id = $reg->schedule_id;
+        if(!empty($schedule_id)){
+            $about = Schedule::find($schedule_id);
+            $about->name = $reg->name;
+            $about->phone = $reg->phone;
+            $about->email = $reg->email;
+            $about->time = $reg->time;
+            $about->description = $reg->description;
+            $about->save();
+        }
+
+        return redirect('/admin/schedule');
+    }
+
+    public function scheduleDelete(Request $reg){
+        $id = $reg->id;
+        $item = Schedule::where('id','=',$id)->first();
+        if(!empty($item)) {
+            $item->delete();
+        }
+        return redirect('/admin/schedule');
+    }
+    //End schedule
+
+    //Bill
+    public function bills(Request $request){
+        $customers = Customer::paginate(10);
+        if($request->idCus){
+            $bills = Bills::where('id_customer','=',$request->idCus)->first();
+            $details = BillDetail::where('id_bill','=',$bills->id)->get();
+            $arrayName = array();
+            foreach ($details as $key => $item) {
+                $products = Products::where('id','=',$item->id_product)->get();
+                $arrayName[] = $products;
+            }
+
+            return json_encode(['bills'=>$bills,'details'=>$details,'products'=>$arrayName]);
+        }
+        return view('admin.pages.bills.index',compact(['customers']));
+    }
+
+    // public function billView(Request $request){
+    //     $customers = Customer::paginate(10);
+        
+    //     return view('admin.pages.bills.index',compact(['customers','bills','details','products']));
+    // }
+
+    public function billDelete(Request $reg){
+        $id = $reg->id;
+        $item = Customer::where('id','=',$id)->first();
+        $bill = Bills::where('id_customer','=',$item->id)->first();
+        $detail = BillDetail::where('id_bill','=',$bill->id)->get();
+        foreach ($detail as $key => $value) {
+            $value->delete();
+        }
+        if(!empty($item)) {
+            $bill->delete();
+            $item->delete();
+        }
+        return redirect('/admin/bills');
+    }
+
+
+    //End Bill
 }

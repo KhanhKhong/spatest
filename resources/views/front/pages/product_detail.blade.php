@@ -6,12 +6,6 @@
 <!--product-->
 <div class="container">
     <div class="title-product3">
-        <ul>
-            <li><a href="index.html">Trang chủ</a></a></li>
-            <li><a href="product.html">Sản phẩm</a></li>
-            <li><a href="product.html">body</a></li>
-            <li>Gucci</li>
-        </ul>
         <div class="clearfix"></div>
         <div class="single-product-top row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

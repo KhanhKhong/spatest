@@ -25,13 +25,11 @@
 <body>
     <div class="type-3">
         <div id="wrap">
-            @include('front.layouts.header')
             <br><br><br><br>
             <div id="app">
                 @yield('content')
             </div>
         </div>
-        @include('front.layouts.footer')
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

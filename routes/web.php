@@ -58,6 +58,11 @@ Route::get('/bills', [
     'as' => 'bills',
     'uses' => 'CartController@bills'
 ]);
+
+Route::post('/update-bills', [
+    'as' => 'update.bills',
+    'uses' => 'CartController@updateBills'
+]);
 //end cart
 
 //email
@@ -139,6 +144,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
 
 	Route::get('/delete-newletter','AdminController@newletterDelete')->name('newletter.delete');
 	//End footer
+
+
+	//schedule
+	Route::get('/schedule','AdminController@schedule')->name('schedule_admin');
+	Route::get('/edit-schedule','AdminController@scheduleEdit')->name('schedule.edit');
+	Route::post('/update-schedule','AdminController@scheduleUpdate')->name('schedule.update');
+	Route::get('/delete-schedule','AdminController@scheduleDelete')->name('schedule.delete');
+	//End schedule
+
+
+	//Bill
+	Route::get('/bills','AdminController@bills')->name('bills_admin');
+	// Route::post('/bills','AdminController@billView')->name('bills.view');
+	Route::get('/delete-bills','AdminController@billDelete')->name('bills.delete');
+	//End Bill
 });
 
 

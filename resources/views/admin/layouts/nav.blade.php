@@ -66,6 +66,18 @@
 				</a>
 			</li>
 			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'schedule_admin' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('schedule_admin') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">Schedule</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
+				<a class="nav-link {{ Route::currentRouteName() == 'bills_admin' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('bills_admin') }}">
+					<i class="fa fa-fw fa-dashboard"></i>
+					<span class="nav-link-text">Bills</span>
+				</a>
+			</li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slides">
 				<a class="nav-link {{ Route::currentRouteName() == 'footer' || Route::currentRouteName() == 'create_slide'? 'item-active':'' }}" href="{{ route('footer') }}">
 					<i class="fa fa-fw fa-dashboard"></i>
 					<span class="nav-link-text">footer</span>

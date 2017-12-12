@@ -46,7 +46,7 @@
                                 </td>
                                 <td data-th="Tổng Cộng" class="text-center">{{ $row->subtotal }}</td>
 
-                                <td class="actions" data-th="">
+                                <td class="actions">
                                     <input type="submit" class="btn btn-info btn-sm" value="Cập nhật">
                                     <a href="{{ route('cart.remove',$row->rowId) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
                                     </a>
@@ -67,7 +67,10 @@
             <div class="row">
                 <div class="col-xs-6"><a href="{{ URL::previous() }}" class="btn btn-cart3 float-left"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
                 </div>
-                <div class="col-xs-6"><a href="#" class="btn-cart3 float-right">Thanh toán<i class="fa fa-angle-right"></i></a>
+                <div class="col-xs-6">
+                    <a href="{{ route('bills') }}" class="btn-cart3 float-right">Thanh toán
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 </div>
             </div>
 

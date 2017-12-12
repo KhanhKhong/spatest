@@ -8,12 +8,12 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Sản Phẩm</li>
+        <li class="breadcrumb-item active">Giới thiệu</li>
     </ol>
     <button type="button" class="btn btn-success"><a class="text_custom" href="{{ route('about.edit') }}">Create</a></button>
     <ol></ol>
     <div class="card mb-3">
-        <div class="card-header"><i class="fa fa-table"></i> Danh sách sản phẩm</div>
+        <div class="card-header"><i class="fa fa-table"></i> Danh sách</div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -29,7 +29,7 @@
                         @foreach($about as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>{!! $item->description !!}</td>
                             <td>{{ $item->about_category_id }}</td>
                             <td>
                                 <button class="btn btn-warning"><a class="text_custom" href="{{ route('about.edit',['id'=>$item->id]) }}">Edit</a></button>

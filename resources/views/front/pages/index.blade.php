@@ -825,6 +825,13 @@
                 <h1 class="service-title text-center schedule-text">Đặt lịch hẹn</h1>
                 <div class="row-custom">
                     <div class="col-sm-8 col-md-8 contact-form">
+                        @if ($errors->any())
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li style="color: red">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                         <form action="{{ route('email.create') }}" id="contact" method="get" class="form" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">

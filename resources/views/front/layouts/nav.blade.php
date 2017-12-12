@@ -1,7 +1,7 @@
 <div class="sw-related-product">
     <div class="block-title title1">
         <h2>
-            <span>Sản phẩm mới nhất</span>
+            <span>Sản phẩm mới</span>
         </h2>
     </div>
     <div class="carousel-inner">

@@ -8,7 +8,7 @@
     <h2 class="box-heading text-uppercase text-center">Dịch vụ</h2>
     <div class="box-content">
         <h3>{{ $service->title }}</h3>
-        <p>{{ $service->description }}</p>
+        <p>{!! $service->description !!}</p>
         <div class="clear"></div>
     </div>
 </div>

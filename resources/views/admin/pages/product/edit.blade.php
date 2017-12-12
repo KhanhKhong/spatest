@@ -106,7 +106,6 @@
                                 <div class="form-group">
                                     <label>Category</label>
 									<select class="js-example-basic-single form-control" name="product_category_id">
-							                <option>Select Category</option>
                                         @foreach($cate as $row) 
                                             <option value="{{ $row->id }}" {{ (isset($editItems) ? $editItems->product_category_id : '') == $row->id ? 'selected="selected"' : '' }}>{{ $row->title }}</option>
                                         @endforeach

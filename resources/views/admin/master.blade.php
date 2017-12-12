@@ -53,7 +53,6 @@
     <script src="{{ asset('admin_source/js/sb-admin-charts.min.js') }}"></script>
     <script src="{{ asset('admin_source/js/select2.min.js') }}"></script>
     <!--footer_script-->
-    @yield('footer_script')
     <script>
         $('.delete').click(function(){
             var result = confirm("Do you want to delete?");
@@ -65,6 +64,7 @@
         });
     </script>
     <!--End footer_script-->
+    @yield('footer_script')
   </div>
 </body>
 
